@@ -1,0 +1,134 @@
+#!/usr/bin/env sh
+
+REALHOME=$HOME
+FAKEHOME=$HOME/.local/fakehomes # Replace this with where you want it to be
+RUNELITE_EXEC=~/.local/gits/runelite/launcher.git/target/RuneLite.jar
+
+XDG_CACHE_HOME=${XDG_CACHE_HOME:-$REALHOME/.cache}
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$REALHOME/.config}
+XDG_DATA_HOME=${XDG_DATA_HOME:-$REALHOME/.local/share}
+XDG_STATE_HOME=${XDG_STATE_HOME:-$REALHOME/.local/state}
+XDG_LOG_HOME=${XDG_LOG_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}}
+
+XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-$REALHOME/Pictures}
+
+# Adds symlinks for actual paths in fakehome
+move_directory() {
+	if [ -d ${REALHOME}/.runelite ]; then
+		if [ -e ${FAKEHOME}/.runelite ]; then
+			echo "There is already a RuneLite directory in the fakehome"
+			return 1
+		else
+			echo "Attempting to move into fakehome..."
+		fi
+
+	## Taking a backup in case anything breaks
+		[ -e "${REALHOME}/runelite.bak" ] && echo "There is already a backup file! You should fix this before doing anything!" && return 8
+		cp -r -- ${REALHOME}/.runelite ${REALHOME}/runelite.bak || return 7
+
+	## The thing itself
+		echo "Moving '$REALHOME/.runelite/' to '$FAKEHOME/.runelite/'"
+		mv --target-directory=$FAKEHOME -- $REALHOME/.runelite || return 2
+
+	## Cache and stuff
+		mkdir -p ${XDG_CACHE_HOME}/runelite
+
+		echo "Moving '.runelite/cache/' to '${XDG_CACHE_HOME}/runelite/runelite/'"
+		[ -d "${FAKEHOME}/.runelite/cache" ] && [ ! -e "${XDG_CACHE_HOME}/runelite/runelite" ] &&  mv -T -- $FAKEHOME/.runelite/cache ${XDG_CACHE_HOME}/runelite/runelite
+		mkdir -p -- ${XDG_CACHE_HOME}/runelite/runelite
+		[ -e "${FAKEHOME}/.runelite/cache" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/cache
+		ln -sT ${XDG_CACHE_HOME}/runelite/runelite ${FAKEHOME}/.runelite/cache
+
+		echo "Moving '.runelite/jagexcache/' to '${XDG_CACHE_HOME}/runelite/runescape/'"
+		mkdir -p -- ${XDG_CACHE_HOME}/runelite
+		[ -d "${FAKEHOME}/.runelite/jagexcache" ] && [ ! -e "${XDG_CACHE_HOME}/runelite/runescape" ] && mv -T -- ${FAKEHOME}/.runelite/jagexcache ${XDG_CACHE_HOME}/runelite/runescape
+		mkdir -p -- ${XDG_CACHE_HOME}/runelite/runescape
+		[ -e "${FAKEHOME}/.runelite/jagexcache" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/jagexcache
+		ln -sT ${XDG_CACHE_HOME}/runelite/runescape ${FAKEHOME}/.runelite/jagexcache
+	
+	# Logs
+		echo "Moving '.runelite/logs/' to '${XDG_LOG_HOME}/runelite/'"
+		[ -d "${FAKEHOME}/.runelite/logs" ] && [ ! -e "${XDG_LOG_HOME}/runelite" ] &&  mv -T -- $FAKEHOME/.runelite/logs ${XDG_LOG_HOME}/runelite
+		mkdir -p -- ${XDG_LOG_HOME}/runelite
+		[ -e "${FAKEHOME}/.runelite/logs" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/logs
+		ln -sT ${XDG_LOG_HOME}/runelite ${FAKEHOME}/.runelite/logs
+
+	## Screenshots
+		echo "Moving '.runelite/screenshots/' to '${XDG_PICTURES_DIR}/runescape/'"
+		[ -d "${FAKEHOME}/.runelite/screenshots" ] && [ ! -e "${XDG_PICTURES_DIR}/runelite" ] && mv -T -- ${FAKEHOME}/.runelite/screenshots ${XDG_PICTURES_DIR}/runelite 
+		mkdir -p -- ${XDG_PICTURES_DIR}/runelite
+		[ -e "${FAKEHOME}/.runelite/screenshots" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/screenshots
+		ln -sT ${XDG_PICTURES_DIR}/runelite ${FAKEHOME}/.runelite/screenshots
+
+	## Plugins and stuff
+		echo "Moving '.runelite/repository2/' to '${XDG_DATA_HOME}/runelite/repository2/'"
+		mkdir -p -- ${XDG_DATA_HOME}/runelite
+		[ -d "${FAKEHOME}/.runelite/repository2" ] && [ ! -e "${XDG_DATA_HOME}/runelite/repository2" ] && mv -T -- ${FAKEHOME}/.runelite/repository2 ${XDG_DATA_HOME}/runelite/repository2
+		mkdir -p -- ${XDG_DATA_HOME}/runelite/repository2
+		[ -e "${FAKEHOME}/.runelite/repository2" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/repository2
+		ln -sT ${XDG_DATA_HOME}/runelite/repository2 ${FAKEHOME}/.runelite/repository2
+
+		echo "Moving '.runelite/plugins/' to '${XDG_DATA_HOME}/runelite/plugins/'"
+		mkdir -p ${XDG_DATA_HOME}/runelite
+		[ -d "${FAKEHOME}/.runelite/plugins" ] && [ ! -e "${XDG_DATA_HOME}/runelite/plugins" ] && mv -T -- ${FAKEHOME}/.runelite/plugins ${XDG_DATA_HOME}/runelite/plugins
+		mkdir -p -- ${XDG_DATA_HOME}/runelite/plugins
+		[ -e "${FAKEHOME}/.runelite/plugins" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/plugins
+		ln -sT ${XDG_DATA_HOME}/runelite/plugins ${FAKEHOME}/.runelite/plugins
+
+		echo "Moving '.runelite/icon.png' to '${XDG_DATA_HOME}/runelite/icon.png'"
+		[ -e "${FAKEHOME}/.runelite/icon.png" ] && [ ! -e "${XDG_DATA_HOME}/runelite/icon.png" ] && mv -T -- ${FAKEHOME}/.runelite/icon.png ${XDG_DATA_HOME}/runelite/icon.png
+		[ -e "${FAKEHOME}/.runelite/icon.png" ] && we_deleted_something=1 && rm -r -- ${FAKEHOME}/.runelite/icon.png
+		ln -sT ${XDG_DATA_HOME}/runelite/icon.png ${FAKEHOME}/.runelite/icon.png
+
+	## Settings and stuff
+		echo "Moving '.runelite/settings.properties' to '${XDG_CONFIG_HOME}/runelite/settings.properties'"
+		mkdir -p -- ${XDG_CONFIG_HOME}/runelite
+		[ -f "${FAKEHOME}/.runelite/settings.properties" ] && [ ! -e ${XDG_CONFIG_HOME}/runelite/settings.properties ] && mv -T -- ${FAKEHOME}/.runelite/settings.properties ${XDG_CONFIG_HOME}/runelite/settings.properties 
+		touch ${XDG_CONFIG_HOME}/runelite/settings.properties
+		[ -e "${FAKEHOME}/.runelite/settings.properties" ] && we_deleted_something=1 && rm -- ${FAKEHOME}/.runelite/settings.properties
+		ln -sT ${XDG_CONFIG_HOME}/runelite/settings.properties ${FAKEHOME}/.runelite/settings.properties
+
+		[ -z "${we_deleted_something}" ] && echo "It seems like all went smooth. You may want to delete ${REALHOME}/runelite.bak now. That's your responsibility." || echo "We deleted something. Compare ${REALHOME}/runelite.bak with the ${FAKEHOME}/.runelite directory, and fix it yourself"
+
+	else
+		if [ -e ${FAKEHOME}/.runelite ]; then
+			echo -e "There is already a RuneLite directory in the fakehome, and none in home directory. \nIf this is a problem, remove the fakehome directory, and run again."
+			return 0
+		else
+			echo "Creating a clean RuneLite in the fakehome"
+			mkdir -p ${FAKEHOME}/.runelite
+
+			mkdir -p ${XDG_CACHE_HOME}/runelite/runelite
+			mkdir -p ${XDG_CACHE_HOME}/runelite/runescape
+			ln -sT ${XDG_CACHE_HOME}/runelite/runelite ${FAKEHOME}/.runelite/cache || return 11
+			ln -sT ${XDG_CACHE_HOME}/runelite/runescape ${FAKEHOME}/.runelite/jagexcache || return 12
+
+			mkdir -p ${XDG_CONFIG_HOME}/runelite
+			touch ${XDG_CONFIG_HOME}/runelite/settings.properties
+			ln -sT ${XDG_CONFIG_HOME}/runelite/settings.properties ${FAKEHOME}/.runelite/settings.properties || return 16
+			# note that java likes to override this file if it's empty/invalid, so maybe we should re-run this command if it's not a link on each execution :)
+
+			mkdir -p ${XDG_LOG_HOME}/runelite
+			ln -sT ${XDG_LOG_HOME}/runelite ${FAKEHOME}/.runelite/logs || return 17
+
+			mkdir -p ${XDG_DATA_HOME}/runelite/repository2
+			mkdir -p ${XDG_DATA_HOME}/runelite/plugins
+			ln -sT ${XDG_DATA_HOME}/runelite/repository2 ${FAKEHOME}/.runelite/repository2 || return 14
+			ln -sT ${XDG_DATA_HOME}/runelite/plugins ${FAKEHOME}/.runelite/plugins || return 15
+
+			mkdir -p ${XDG_PICTURES_DIR}/runelite
+			ln -sT ${XDG_PICTURES_DIR}/runelite ${FAKEHOME}/.runelite/screenshots || return 13
+		fi
+	fi
+}
+main() {
+	export HOME=${FAKEHOME}
+	export _JAVA_OPTIONS=-Duser.home=${FAKEHOME}
+
+	move_directory 
+	errno="$?"
+
+	[ "$errno" -eq "0" ] && echo -e "We are done preparing. Launching the game...\n\n\n" && java -ea -jar --add-opens=java.desktop/sun.awt=ALL.UNNAMED -Duser.home=${FAKEHOME} $RUNELITE_EXEC "$@" || echo "Failed to fakehome runelite: "$errno""
+}
+
+main

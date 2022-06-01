@@ -1,0 +1,16 @@
+#!/bin/sh
+export LANG="en_ISO.UTF-8"
+
+# export default xdg paths unless already set
+HOME="${HOME:-/home/${USER:-$(whoami)}}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
+export XDG_BIN_HOME="${XDG_BIN_HOME:-${HOME}/.local/bin}"
+export XDG_LOG_HOME="${HOME}/.local/logs"  # not a standard path, per se
+
+# we use this location to keep HOME clean from applications who
+# have no respect for anything
+export FAKEHOME_PATH="${FAKEHOME_PATH:-$HOME/.local/fakehomes}"  
+

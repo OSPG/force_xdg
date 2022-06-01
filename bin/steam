@@ -1,0 +1,65 @@
+#!/usr/bin/env sh
+
+REALHOME=$HOME
+FAKEHOME=${FAKEHOME_PATH:-$HOME/.local/fakehomes}/steam # Replace this with where you want it to be
+
+# until Wayland support actually works on steam...
+export SDL_VIDEODRIVER=x11
+
+
+# Adds symlinks for actual paths in fakehome
+remember() {
+	# Replace OLDHOME with HOME in the link name
+	fake_dir=$(echo $1 | sed "s:^$REALHOME:$FAKEHOME:")
+	echo -en "Relinking '$1' to '$fake_dir'... "
+
+	# Creates the link's parent directory and symlinks it
+	mkdir -p $(dirname $fake_dir) || echo "Failed to create parent dirs"
+	ln -s "$1" -t "$(dirname ${fake_dir})" 2> /dev/null
+	ret=$?
+	[ "$ret" -eq "0" -o "$ret" -eq "1" ] && return 0 || return 1
+}
+forget() {
+	fake_dir=$(echo $1 | sed "s:^$REALHOME:$FAKEHOME:" | sed 's:^\(.*\)/$:\1:')
+	echo -en "Unlinking '$fake_dir'... "
+	unlink "$fake_dir" 2> /dev/null
+	ret=$?
+	[ "$ret" -eq "0" -o "$ret" -eq "1" ] && return 0 || return 1
+}
+
+try() {
+	$@
+	ret=$?
+	[ "$ret" -eq "0" ] && echo "Ok" || echo "Failed" 
+	[ "$ret" -eq "0" ] || export error=1
+}
+
+mkdir -p $FAKEHOME
+paths() {
+	try $1 ${XDG_DATA_HOME:-$HOME/.local/share}
+	try $1 ${XDG_CACHE_HOME:-$HOME/.cache}
+	try $1 ${XDG_CONFIG_HOME:-$HOME/.config}
+	try $1 ${REALHOME}/.icons # ~/.icons (lxappearance's mouse cursor theme)
+}
+move_steam() {
+	# If .steam exists in ~/ and not in the fake home, move it to the fake home
+	should_move_steam=1
+	[ -d $OLDHOME/.steam ] && [ ! -d $FAKEHOME/.steam ] && should_move_steam=1 || return 0
+	[ "$should_move_steam" -eq "1" ] && mv $OLDHOME/.steam $HOME/ && return 0
+
+}
+function main() {
+	export HOME=${FAKEHOME}
+
+	error=0
+	paths remember || error=1
+	move_steam || error=1
+
+	# unset ALSOFT_DRIVERS
+	[ "$error" = "0" ] && exec /usr/bin/steam "$@" \
+		> "${XDG_LOG_HOME:-$REALHOME/.local/logs}/steam/log"  \
+		2> "${XDG_LOG_HOME:-$REALHOME/.local/logs}/steam/err" \
+		|| echo "Failed to fakehome steam"
+}
+
+main
