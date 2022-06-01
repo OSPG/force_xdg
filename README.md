@@ -6,6 +6,8 @@ This repository/package contains a list of fixes which should already by impleme
 ## Usage
 Navigate into this repository, run `./setup.sh`. Source the copied `${XDG_DATA_HOME}/force_xdg/environment` from your shell's runscript file. You're done.
 
+You can see what the script would do without actually doing anything by running `./setup.sh -n` instead.
+
 ## Notes
 
 You can `git pull` this repository, and re-run the setup to update the scripts at any time. Alternatively you can place the git directory as `${XDG_DATA_HOME}/force_xdg` manually, and then you may pull the changes directly. You still need to run `./setup.sh` to deploy the fixes, but this allows customizability.
