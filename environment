@@ -1,5 +1,7 @@
 #!/bin/sh
-. ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths
+if [ -e ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths ]; then
+	. ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths
+fi
 
 # zsh
 export ZDOTDIR=${ZDOTDIR:-${XDG_CONFIG_HOME}/zsh}

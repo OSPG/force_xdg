@@ -8,6 +8,8 @@ Navigate into this repository, run `./setup.sh`. Source the copied `${XDG_DATA_H
 
 You can see what the script would do without actually doing anything by running `./setup.sh -n` instead.
 
+If you decided to use `${FORCE_XDG_BIN_HOME}` instead of the default `${XDG_BIN_HOME}`, make sure to add it to your `${PATH}` too.
+
 ## Notes
 
 You can `git pull` this repository, and re-run the setup to update the scripts at any time. Alternatively you can place the git directory as `${XDG_DATA_HOME}/force_xdg` manually, and then you may pull the changes directly. You still need to run `./setup.sh` to deploy the fixes, but this allows customizability.
