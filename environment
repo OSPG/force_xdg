@@ -1,6 +1,8 @@
 #!/bin/sh
 if [ -e ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths ]; then
 	. ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths
+else
+	. ./xdg_paths
 fi
 
 # zsh
