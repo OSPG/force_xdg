@@ -1,0 +1,3 @@
+#!/bin/sh
+export PYTHONSTARTUP=${XDG_DATA_HOME}/python/pythonrc
+exec command -p python

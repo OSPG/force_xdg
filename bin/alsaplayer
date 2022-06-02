@@ -1,2 +1,2 @@
 #!/bin/sh
-exec alsaplayer --config ${XDG_CONFIG_HOME:?}/alsaplayer/alsaplayer.conf
+exec command -p alsaplayer --config ${XDG_CONFIG_HOME:?}/alsaplayer/alsaplayer.conf
