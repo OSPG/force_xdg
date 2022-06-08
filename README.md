@@ -43,7 +43,7 @@ force_xdg.git/
 └── xdg_paths
 ```
 
-Some applications are fixed in the initialization file, and in that case we want to inject our fixes their configuration location: 
+Some applications are fixed in the initialization file, and in that case we want to inject our fixes into their configuration location: 
 - Ideally we only add a file called `force_xdg` in their rc directory, and source this from their main rc file, if possible.
 - Otherwise, we add the fixes directly in their own rc, with a guarding `>>> force_xdg` and `<<< force_xdg` around our injected code, in comments (if at all possible).
 
