@@ -1,0 +1,3 @@
+#!/bin/sh
+# wget-hsts for tracking downloaded files, defaults to $HOME/.wget-hsts
+export WGETRC="${WGETRC:-${XDG_CONFIG_HOME:?}/wget/config}"

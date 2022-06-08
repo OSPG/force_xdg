@@ -1,0 +1,3 @@
+#!/bin/sh
+export ANDROID_SDK_HOME="${ANDROID_SDK_HOME:-${XDG_CONFIG_HOME:?}/android}"
+export ADB_VENDOR_KEY="${ADB_VENDOR_KEY:-${XDG_CONFIG_HOME:?}/android}"

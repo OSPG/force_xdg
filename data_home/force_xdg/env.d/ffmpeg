@@ -1,0 +1,3 @@
+#!/bin/sh
+# NOTE: "data" here usually means preset argument sets
+export FFMPEG_DATADIR="${FFMPEG_DATADIR:-${XDG_CONFIG_HOME:?}/ffmpeg}"

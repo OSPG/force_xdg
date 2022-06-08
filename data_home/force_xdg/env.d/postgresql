@@ -1,0 +1,5 @@
+#!/bin/sh
+export PSQLRC="${PSQLRC:-${XDG_CONFIG_HOME:?}/postgresql/psqlrc}"
+export PSQL_HISTORY="${PSQL_HISTORY:-${XDG_STATE_HOME:?}/postgresql/history}"
+export PGPASSFILE="${PGPASSFILE:-${XDG_CONFIG_HOME:?}/postgresql/pass}"
+export PGSERVICEFILE="${PGSERVICEFILE:-${XDG_CONFIG_HOME:?}/postgresql/pg_service.conf}"

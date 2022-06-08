@@ -1,0 +1,2 @@
+#!/bin/sh
+export ELECTRUMDIR="${ELECTRUMDIR:-${XDG_DATA_HOME:?}/electrum}"

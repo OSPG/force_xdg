@@ -1,0 +1,2 @@
+#!/bin/sh
+export XAUTHORITY="${XAUTHORITY:-${XDG_RUNTIME_DIR:?}/Xauthority}"

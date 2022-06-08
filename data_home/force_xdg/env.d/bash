@@ -1,0 +1,3 @@
+#!/bin/sh
+# TODO: is it bash-completion or is it bash? if it's part of bash we should change the directory
+export BASH_COMPLETION_USER_FILE="${BASH_COMPLETION_USER_FILE:-${XDG_CONFIG_HOME:?}/bash-completion/bash_completion}"

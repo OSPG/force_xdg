@@ -1,0 +1,4 @@
+#!/bin/sh
+export TEXMFHOME="${TEXMFHOME:-${XDG_DATA_HOME:?}/texmf}"
+export TEXMFVAR="${TEXMFVAR:-${XDG_CACHE_HOME:?}/texlive/var}"
+export TEXMFCONFIG="${TEXMFCONFIG:-${XDG_CONFIG_HOME:?}/texlive/config}"

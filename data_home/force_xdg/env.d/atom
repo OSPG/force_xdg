@@ -1,0 +1,2 @@
+#!/bin/sh
+export ATOM_HOME="${ATOM_HOME:-${XDG_DATA_HOME:?}/atom}"

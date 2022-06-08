@@ -1,0 +1,5 @@
+#!/bin/sh
+export GNUPGHOME="${GNUPGHOME:-${XDG_DATA_HOME:?}/gnupg}"
+
+# TODO: require symlink?
+# alias gpg2="gpg2 --homedir $XDG_DATA_HOME/gnupg"

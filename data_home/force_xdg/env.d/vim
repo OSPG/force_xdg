@@ -1,0 +1,6 @@
+#!/bin/sh
+# VIMINIT is supported by neovim too
+# :help runtimepath in neovim is a good source of information
+
+# TODO: maybe set runtimepath to data_home instead of config_home?
+export VIMINIT="set runtimepath^=${XDG_CONFIG_HOME}/vim|set runtimepath+=${XDG_CONFIG_HOME}/vim/after|source ${XDG_CONFIG_HOME}/vim/vimrc"

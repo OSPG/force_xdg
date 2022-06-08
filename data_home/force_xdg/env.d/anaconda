@@ -1,0 +1,2 @@
+#!/bin/sh
+export CONDARC="${CONDARC:-${XDG_CONFIG_HOME:?}/conda/condarc}"

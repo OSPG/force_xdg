@@ -1,0 +1,2 @@
+#!/bin/sh
+export SSB_HOME="${SSB_HOME:-${XDG_DATA_HOME:?}/zoom}"

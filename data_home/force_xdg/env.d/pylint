@@ -1,0 +1,2 @@
+#!/bin/sh
+export PYLINTHOME="${PYLINTHOME:-${XDG_CACHE_HOME:?}/pylint}"

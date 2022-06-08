@@ -1,0 +1,5 @@
+#!/bin/sh
+export PYTHONSTARTUP="${PYTHONSTARTUP:-${XDG_CONFIG_HOME:?}/python/pythonrc}"
+
+# TODO: is this a python-native variable?
+export PYTHONHISTFILE="${PYTHONHISTFILE:-${XDG_STATE_HOME:?}/python/history}"

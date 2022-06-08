@@ -1,0 +1,3 @@
+#!/bin/sh
+export OCTAVE_HISTFILE="${OCTAVE_HISTFILE:-${XDG_STATE_HOME:?}/octave/history}"
+export OCTAVE_SITE_INITFILE="${OCTAVE_SITE_INITFILE:-${XDG_CONFIG_HOME:?}/octave/octaverc}"

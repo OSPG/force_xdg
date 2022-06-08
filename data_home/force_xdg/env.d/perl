@@ -1,0 +1,10 @@
+#!/bin/sh
+PERL_BASE=${XDG_DATA_HOME:?}/perl
+export PERL_MM_OPT="${PERL_MM_OPT:-INSTALL_BASE=$PERL_BASE}"
+export PERL_MB_OPT="${PERL_MB_OPT:---install_base $PERL_BASE}"
+export PERL5LIB="${PERL5LIB:-$PERL_BASE/lib/perl5}"
+
+# TODO: export PATH for perl
+# export PATH="$PERL_BASE/bin${PATH:+:$PATH}"
+# TODO: export MANPATH for perl
+# export MANPATH="$PERL_BASE/man${MANPATH:+:$MANPATH}"

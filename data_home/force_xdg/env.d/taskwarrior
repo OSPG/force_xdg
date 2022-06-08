@@ -1,0 +1,6 @@
+#!/bin/sh
+export TASKDATA="${TASKDATA:-${XDG_DATA_HOME:?}/task}"
+export TASKRC="${TASKRC:-${XDG_CONFIG_HOME:?}/task/taskrc}"
+
+# TODO: consider moving to data_home instead of config_home? not sure what taskwarrior does
+export TIMEWARRIORDB="${TIMEWARRIORDB:-${XDG_CONFIG_HOME:?}/time}"

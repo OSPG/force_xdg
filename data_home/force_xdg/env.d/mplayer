@@ -1,0 +1,2 @@
+#!/bin/sh
+export MPLAYER_HOME="${MPLAYER_HOME:-${XDG_CONFIG_HOME:?}/mplayer}"

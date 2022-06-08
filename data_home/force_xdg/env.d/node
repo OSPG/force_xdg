@@ -1,0 +1,14 @@
+#!/bin/sh
+
+export NODEJS_HOME="${NODEJS_HOME:-${XDG_DATA_HOME}/nodejs}"
+export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-${XDG_STATE_HOME:?}/node/history}"
+
+export NODE_PATH="${NODE_PATH:-${XDG_DATA_HOME:?}/npm/lib/node_modules}"
+export NPM_CONFIG_USERCONFIG="${NPM_CONFIG_USERCONFIG:-${XDG_CONFIG_HOME:?}/npm/npmrc}"
+
+# TODO: is nodejs/node/npm all the same?
+# export NODE_PATH="${NODE_PATH:-${NODEJS_HOME:-${XDG_DATA_HOME:?}/npm}/lib/node_modules}"
+# export NPM_CONFIG_USERCONFIG="${NPM_CONFIG_USERCONFIG:-${NODEJS_HOME:-${XDG_CONFIG_HOME:?}/npm}/npmrc}"
+
+# TODO: add node to path
+# export PATH="$PATH:$XDG_DATA_HOME/npm/bin"

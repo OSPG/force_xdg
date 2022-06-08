@@ -1,0 +1,2 @@
+#!/bin/sh
+export SWAY_CONFIG_HOME="${SWAY_CONFIG_HOME:-${XDG_CONFIG_HOME}/sway}"

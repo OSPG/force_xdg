@@ -1,0 +1,2 @@
+#!/bin/sh
+export JULIA_DEPOT_PATH="${JULIA_DEPOT_PATH:-${XDG_DATA_HOME:?}/julia}"

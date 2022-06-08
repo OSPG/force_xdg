@@ -1,0 +1,2 @@
+#!/bin/sh
+export MYSQL_HISTFILE="${MYSQL_HISTFILE:-${XDG_STATE_HOME:?}/mysql/history}"
