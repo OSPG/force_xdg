@@ -1,0 +1,2 @@
+#!/bin/sh
+export KDEHOME="${KDEHOME:-${XDG_CONFIG_HOME:?}/kde}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export RXVT_SOCKET="${RXVT_SOCKET:-${XDG_RUNTIME_DIR:?}/urxvtd}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export KODI_DATA="${KODI_DATA:-${XDG_DATA_HOME:?}/kodi}"

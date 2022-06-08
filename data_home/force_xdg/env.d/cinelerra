@@ -1,0 +1,2 @@
+#!/bin/sh
+export CIN_CONFIG="${CIN_CONFIG:-${XDG_CONFIG_HOME:?}"/cinelerra}"

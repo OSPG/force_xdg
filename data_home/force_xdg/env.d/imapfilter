@@ -1,0 +1,2 @@
+#!/bin/sh
+export IMAPFILTER_HOME="${IMAPFILTER_HOME:-${XDG_CONFIG_HOME:?}/imapfilter}"

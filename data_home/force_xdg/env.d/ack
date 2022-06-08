@@ -1,0 +1,2 @@
+#!/bin/sh
+export ACKRC="${ACKRC:-${XDG_CONFIG_HOME:?}/ack/ackrc}"

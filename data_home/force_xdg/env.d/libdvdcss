@@ -1,0 +1,2 @@
+#!/bin/sh
+export DVDCSS_CACHE="${DVDCSS_CACHE:-${XDG_CACHE_HOME:?}/dvdcss}"

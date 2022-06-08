@@ -1,0 +1,3 @@
+#!/bin/sh
+export XCOMPOSEFILE="${XCOMPOSEFILE:-${XDG_CONFIG_HOME:?}/X11/xcompose}"
+export XCOMPOSECACHE="${XCOMPOSECACHE:-${XDG_CACHE_HOME:?}/X11/xcompose}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export MATHEMATICA_USERBASE="${MATHEMATICA_USERBASE:-${XDG_CONFIG_HOME:?}/mathematica}"

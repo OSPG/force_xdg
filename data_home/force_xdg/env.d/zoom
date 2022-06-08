@@ -1,2 +1,3 @@
 #!/bin/sh
+# reported to break some stuff, apparently. personally never had a problem
 export SSB_HOME="${SSB_HOME:-${XDG_DATA_HOME:?}/zoom}"

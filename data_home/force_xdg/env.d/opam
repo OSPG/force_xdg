@@ -1,0 +1,3 @@
+#!/bin/sh
+# NOTE: state and config data are both stored here
+export OPAMROOT="${OPAMROOT:-${XDG_DATA_HOME:?}/opam}"

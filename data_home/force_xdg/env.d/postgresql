@@ -3,3 +3,9 @@ export PSQLRC="${PSQLRC:-${XDG_CONFIG_HOME:?}/postgresql/psqlrc}"
 export PSQL_HISTORY="${PSQL_HISTORY:-${XDG_STATE_HOME:?}/postgresql/history}"
 export PGPASSFILE="${PGPASSFILE:-${XDG_CONFIG_HOME:?}/postgresql/pass}"
 export PGSERVICEFILE="${PGSERVICEFILE:-${XDG_CONFIG_HOME:?}/postgresql/pg_service.conf}"
+
+# it won't create them for us
+mkdir -p "${$(basename ${PSQLRC:?}):?basename not installed}"
+mkdir -p "${$(basename ${PSQL_HISTORY:?}):?basename not installed}"
+mkdir -p "${$(basename ${PGPASSFILE:?}):?basename not installed}"
+mkdir -p "${$(basename ${PGSERVICEFILE:?}):?basename not installed}"

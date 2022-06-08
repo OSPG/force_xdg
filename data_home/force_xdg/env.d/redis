@@ -1,0 +1,3 @@
+#!/bin/sh
+export REDISCLI_HISTFILE="${REDISCLI_HISTFILE:-${XDG_STATE_HOME:?}/redis/history}"
+export REDISCLI_RCFILE="${REDISCLI_RCFILE:-${XDG_CONFIG_HOME:?}/redis/redisclirc}"

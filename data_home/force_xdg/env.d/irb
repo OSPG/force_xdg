@@ -1,0 +1,6 @@
+#!/bin/sh
+export IRBRC="${IRBRC:-${XDG_CONFIG_HOME:?}/irb/irbrc}"
+
+# TODO: add the following to config_home/irb/irbrc
+# IRB.conf[:SAVE_HISTORY] ||= 1000
+# IRB.conf[:HISTORY_FILE] ||= File.join(ENV["XDG_DATA_HOME"], "irb", "history")

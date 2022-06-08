@@ -1,0 +1,2 @@
+#!/bin/sh
+export KSCRIPT_CACHE_DIR="${KSCRIPT_CACHE_DIR:-${XDG_CACHE_HOME:?}/kscript}"

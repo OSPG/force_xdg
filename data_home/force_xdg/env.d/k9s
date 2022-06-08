@@ -1,0 +1,2 @@
+#!/bin/sh
+export K9SCONFIG="${K9SCONFIG:-${XDG_CONFIG_HOME:?}/k9s}"

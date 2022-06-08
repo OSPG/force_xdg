@@ -1,0 +1,2 @@
+#!/bin/sh
+export ASPELL_CONF="${ASPELL_CONF:-per-conf ${XDG_CONFIG_HOME:?}/aspell/aspell.conf; personal ${XDG_CONFIG_HOME:?}/aspell/en.pws; repl ${XDG_CONFIG_HOME:?}/aspell/en.prepl"

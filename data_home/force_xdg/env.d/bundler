@@ -1,0 +1,7 @@
+#!/bin/sh
+# export BUNDLE_PATH="$GEM_HOME/ruby/3.0.0"  # FIXME: version should not be hardcoded
+export BUNDLE_USER_CONFIG="${BUNDLE_USER_CONFIG:-${XDG_CONFIG_HOME:?}/bundler}"
+export BUNDLE_USER_CACHE="${BUNDLE_USER_CACHE:-${XDG_CACHE_HOME:?}/bundler}"
+
+# TODO: consider subdir into data_home/bundle/plugins/ instead?
+export BUNDLE_USER_PLUGIN="${BUNDLE_USER_PLUGIN:-${XDG_DATA_HOME:?}/bundler}"

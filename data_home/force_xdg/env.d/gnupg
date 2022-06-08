@@ -3,3 +3,6 @@ export GNUPGHOME="${GNUPGHOME:-${XDG_DATA_HOME:?}/gnupg}"
 
 # TODO: require arguments to work?
 # alias gpg2="gpg2 --homedir $XDG_DATA_HOME/gnupg"
+
+# NOTE: systemd users need to fix their units because of hashing!
+# gpgconf --dry-run --create-socketdir

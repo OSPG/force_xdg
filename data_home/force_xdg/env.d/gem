@@ -1,15 +1,15 @@
 #!/bin/sh
 export GEM_HOME="${GEM_HOME:-${XDG_DATA_HOME:?}/gem}"
 export GEM_SPEC_CACHE="${GEM_SPEC_CACHE:-${XDG_CACHE_HOME:?}/gem}"
+# NOTE: make sure to remove gem: --user-install from /etc/gemrc
 
 # TODO: add gem to PATH
 # export PATH=$PATH:"$GEM_HOME/bin"
 
-# TODO: is bundle part of gem? otherwise we should move this to its own file
-export BUNDLE_PATH="$GEM_HOME/ruby/3.0.0"  # FIXME: version should not be hardcoded
-export BUNDLE_USER_CONFIG="${BUNDLE_USER_CONFIG:-${XDG_CONFIG_HOME:?}/bundle}"
-export BUNDLE_USER_CACHE="${BUNDLE_USER_CACHE:-${XDG_CACHE_HOME:?}/bundle}"
+# NOTE: moved this to bundler instead
+# export BUNDLE_PATH="$GEM_HOME/ruby/3.0.0"  # FIXME: version should not be hardcoded
+# export BUNDLE_USER_CONFIG="${BUNDLE_USER_CONFIG:-${XDG_CONFIG_HOME:?}/bundle}"
+# export BUNDLE_USER_CACHE="${BUNDLE_USER_CACHE:-${XDG_CACHE_HOME:?}/bundle}"
 
-# TODO: consider subdir into data_home/bundle/plugins/ instead?
-export BUNDLE_USER_PLUGIN="${BUNDLE_USER_PLUGIN:-${XDG_DATA_HOME:?}/bundle}"
+# export BUNDLE_USER_PLUGIN="${BUNDLE_USER_PLUGIN:-${XDG_DATA_HOME:?}/bundle}"
 

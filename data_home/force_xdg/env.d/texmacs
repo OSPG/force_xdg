@@ -1,0 +1,2 @@
+#!/bin/sh
+export TEXMACS_HOME_PATH="${TEXMACS_HOME_PATH:-${XDG_STATE_HOME:?}/texmacs}"

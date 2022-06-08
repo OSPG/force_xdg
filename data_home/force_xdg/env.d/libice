@@ -1,0 +1,3 @@
+#!/bin/sh
+# TODO: maybe this should be in runtime directory instead, although this is adviced against because it's not ready until after login
+export ICEAUTHORITY="${ICEAUTHORITY:-${XDG_CACHE_HOME:?}/ICEauthority}"

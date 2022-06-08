@@ -1,0 +1,2 @@
+#!/bin/sh
+export STACK_ROOT="${STACK_ROOT:-${XDG_DATA_HOME:?}/stack}"

@@ -1,3 +1,6 @@
 #!/bin/sh
 # wget-hsts for tracking downloaded files, defaults to $HOME/.wget-hsts
 export WGETRC="${WGETRC:-${XDG_CONFIG_HOME:?}/wget/config}"
+
+# TODO: add --hsts-file=${XDG_STATE_HOME:?}/wget/history function, or alternatively:
+# echo hsts-file \= "$XDG_CACHE_HOME"/wget-hsts >> "$XDG_CONFIG_HOME/wgetrc"

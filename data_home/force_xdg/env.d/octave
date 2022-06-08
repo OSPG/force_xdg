@@ -1,3 +1,9 @@
 #!/bin/sh
 export OCTAVE_HISTFILE="${OCTAVE_HISTFILE:-${XDG_STATE_HOME:?}/octave/history}"
 export OCTAVE_SITE_INITFILE="${OCTAVE_SITE_INITFILE:-${XDG_CONFIG_HOME:?}/octave/octaverc}"
+
+# TODO: implement octaverc
+# source /usr/share/octave/site/m/startup/octaverc;
+# pkg prefix ~/.local/share/octave/packages ~/.local/share/octave/packages;
+# pkg local_list /home/<your username>/.local/share/octave/octave_packages;
+

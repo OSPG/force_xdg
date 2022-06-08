@@ -1,0 +1,2 @@
+#!/bin/sh
+export PYENV_ROOT="${PYENV_ROOT:-${XDG_DATA_HOME:?}/pyenv}"

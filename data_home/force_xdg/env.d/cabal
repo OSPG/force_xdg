@@ -1,0 +1,6 @@
+#!/bin/sh
+export CABAL_CONFIG="${CABAL_CONFIG:-${XDG_CONFIG_HOME:?}/cabal/config}"
+
+# downloads, maybe data_home is better?
+export CABAL_DIR="${CABAL_DIR:-${XDG_CACHE_HOME:?}/cabal}"
+

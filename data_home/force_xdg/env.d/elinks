@@ -1,0 +1,2 @@
+#!/bin/sh
+export ELINKS_CONFDIR="${ELINKS_CONFDIR:-${XDG_CONFIG_HOME:?}/elinks}"

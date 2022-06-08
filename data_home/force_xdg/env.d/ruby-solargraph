@@ -1,0 +1,2 @@
+#!/bin/sh
+export SOLARGRAPH_CACHE="${SOLARGRAPH_CACHE:-${XDG_CACHE_HOME:?}/solargraph}"

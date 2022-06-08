@@ -1,0 +1,2 @@
+#!/bin/sh
+export IPFS_PATH="${IPFS_PATH:-${XDG_DATA_HOME:?}/ipfs}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export RECOLL_CONFDIR="${RECOLL_CONFDIR:-${XDG_CONFIG_HOME:?}/recoll}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export VSCODE_PORTABLE="${VSCODE_PORTABLE:-${XDG_DATA_HOME:?}/vscode}"

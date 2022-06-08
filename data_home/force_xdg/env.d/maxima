@@ -1,0 +1,2 @@
+#!/bin/sh
+export MAXIMA_USERDIR="${MAXIMA_USERDIR:-${XDG_CONFIG_HOME:?}/maxima}"

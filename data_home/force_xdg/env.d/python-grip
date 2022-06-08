@@ -1,0 +1,2 @@
+#!/bin/sh
+export GRIPHOME="${GRIPHOME:-${XDG_CONFIG_HOME:?}/grip}"

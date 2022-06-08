@@ -1,2 +1,3 @@
 #!/bin/sh
+# NOTE: this breaks LightDM, does not work on SLiM, SSDM has its own configuration
 export XAUTHORITY="${XAUTHORITY:-${XDG_RUNTIME_DIR:?}/Xauthority}"

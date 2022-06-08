@@ -1,0 +1,2 @@
+#!/bin/sh
+export LEDGER_FILE="${LEDGER_FILE:-${XDG_DATA_HOME:?}/hledger/journal}"

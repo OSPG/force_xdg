@@ -1,0 +1,2 @@
+#!/bin/sh
+export DOT_SAGE="${DOT_SAGE:-${XDG_CONFIG_HOME:?}/sage}"

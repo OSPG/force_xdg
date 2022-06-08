@@ -1,0 +1,4 @@
+#!/bin/sh
+export GQRC="${GQRC:-${XDG_CONFIG_HOME:?}/gqrc}"
+export GQSTATE="${GQSTATE:-${XDG_STATE_HOME:?}/gq/state}"
+mkdir -p "$(dirname "$GQSTATE")"

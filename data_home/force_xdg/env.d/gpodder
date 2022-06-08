@@ -1,0 +1,6 @@
+#!/bin/sh
+# TODO: should we even use xdg-user-dir here? maybe we should source these in xdg_paths instead. should we subdir?
+GPODDER_DOWNLOAD_DIR="${GPODDER_DOWNLOAD_DIR:-${XDG_DOWNLOAD_DIR:-${$(xdg-user-dir DOWNLOAD):?}}/gpodder}"
+
+# NOTE: gpodder uses this location for both config and database
+GPODDER_HOME="${GPODDER_HOME:-${XDG_DATA_HOME:?}/gpodder}"

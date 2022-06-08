@@ -1,0 +1,2 @@
+#!/bin/sh
+export PLTUSERHOME="${PLTUSERHOME:-${XDG_DATA_HOME:?}/racket}"

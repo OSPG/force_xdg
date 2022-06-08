@@ -1,0 +1,2 @@
+#!/bin/sh
+export TRAVIS_CONFIG_PATH="${TRAVIS_CONFIG_PATH:-${XDG_CONFIG_HOME:?}/travis}"

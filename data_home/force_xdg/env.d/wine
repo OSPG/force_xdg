@@ -1,0 +1,4 @@
+#!/bin/sh
+export WINEPREFIX="${WINEPREFIX:-${XDG_DATA_HOME:?}/wine/prefixes/default}"
+
+# TODO: must create xdg_data_home/wine/prefixes

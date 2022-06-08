@@ -1,0 +1,3 @@
+#!/bin/sh
+# why is this a single character program name. spooky
+export N_PREFIX="${N_PREFIX:-${XDG_DATA_HOME:?}/n}"

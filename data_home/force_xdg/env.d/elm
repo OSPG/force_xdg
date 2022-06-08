@@ -1,0 +1,2 @@
+#!/bin/sh
+export ELM_HOME="${ELM_HOME:-${XDG_CONFIG_HOME:?}/elm}"

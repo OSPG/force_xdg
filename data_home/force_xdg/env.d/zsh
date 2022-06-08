@@ -1,3 +1,10 @@
 #!/bin/sh
 
+# NOTE: this should be set in /etc/zsh/zshenv, but ~/.zshenv is also possible
 export ZDOTDIR="${ZDOTDIR:-${XDG_CONFIG_HOME:?}/zsh}"
+
+export HISTFILE="${HISTFILE:-${XDG_STATE_HOME:?}/zsh/history}"
+
+# TODO: add this to zshrc
+# compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+# zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache

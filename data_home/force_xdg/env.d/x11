@@ -1,0 +1,3 @@
+#!/bin/sh
+export XINITRC="${XINITRC:-${XDG_CONFIG_HOME:?}/X11/xinitrc}"
+export XSERVERRC="${XSERVERRC:-${XDG_CONFIG_HOME:?}/X11/xserverrc}"

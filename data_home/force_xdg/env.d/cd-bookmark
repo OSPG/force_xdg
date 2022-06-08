@@ -1,0 +1,3 @@
+#!/bin/sh
+# note that there's a fork at erikw/cd-bookmarks which fixes it :)
+export CD_BOOKMARK_FILE="${CD_BOOKMARK_FILE:-${XDG_CONFIG_HOME:?}/cd-bookmark/bookmarks}"

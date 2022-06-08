@@ -1,0 +1,5 @@
+#!/bin/sh
+export TERMINFO="${TERMINFO:-${XDG_DATA_HOME:?}/terminfo}"
+
+# FIXME: hardcoding /usr/share is not ideal, should use XDG_DATA_DIRS subpaths
+export TERMINFO_DIRS="${TEMMINFO_DIRS:-${TERMINFO}:/usr/share/terminfo}"

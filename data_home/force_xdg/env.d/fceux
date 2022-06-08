@@ -1,0 +1,3 @@
+#!/bin/sh
+# creates .fceux under this path
+export FCEUX_HOME="${FCEUX_HOME:-${XDG_CONFIG_HOME:?}/fceux}"

@@ -1,0 +1,5 @@
+#!/bin/sh
+export SPACEMACSDIR="${SPACEMACSDIR:-${XDG_CONFIG_HOME:?}/spacemacs}"
+
+# TODO: oneshot this:
+# mv ~/.spacemacs "$SPACEMACSDIR"/init.el 

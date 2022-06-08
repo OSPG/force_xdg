@@ -1,0 +1,2 @@
+#!/bin/sh
+export RLWRAP_HOME="${RLWRAP_HOME:-${XDG_DATA_HOME:?}/rlwrap}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export _Z_DATA="${_Z_DATA:-${XDG_DATA_HOME:?}/z}"

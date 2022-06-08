@@ -1,0 +1,3 @@
+#!/bin/sh
+# NOTE: __HVER__ is not a typo, it is required by Houdini, and will be replaced by Major.Minor version once run
+export HOUDINI_USER_PREF_DIR="${HOUDINI_USER_PREF_DIR:-${XDG_CACHE_HOME:?}/houdini/__HVER__}"

@@ -1,0 +1,2 @@
+#!/bin/sh
+export LYNX_CFG_PATH="${LYNX_CFG_PATH:-${XDG_CONFIG_HOME:?}/lynx/lynxrc}"

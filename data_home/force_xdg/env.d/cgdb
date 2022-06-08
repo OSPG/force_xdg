@@ -1,0 +1,2 @@
+#!/bin/sh
+export CGDB_DIR="${CGDB_DIR:-${XDG_CONFIG_HOME:?}/cgdb}"
