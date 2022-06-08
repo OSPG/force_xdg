@@ -1,7 +1,18 @@
 #!/bin/sh
+# just to silence the output. shell needs to support functions 
+pushd() { command pushd "$@" >/dev/null; }
+popd() { command popd "$@" >/dev/null; }
+
+
+# TODO: better way of defaulting xdg paths. we assume they exist under our environment
 if [ -e ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths ]; then
 	. ${XDG_DATA_HOME:-$HOME/.local/share}/force_xdg/xdg_paths
 else
 	. ./xdg_paths
 fi
 
+pushd ${XDG_DATA_HOME}/force_xdg
+	for app in env.d/*; do
+		. ${app}
+	done
+popd

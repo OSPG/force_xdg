@@ -4,6 +4,8 @@
 # the setup file is in
 #
 
+# TODO: move this file into a makefile instead, preferably modular
+
 # just to silence the output
 pushd() { command pushd "$@" >/dev/null; }
 popd() { command popd "$@" >/dev/null; }
