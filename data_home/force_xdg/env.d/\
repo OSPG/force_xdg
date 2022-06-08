@@ -1,2 +1,0 @@
-#!/bin/sh
-export MOST_INITFILE="$XDG_CONFIG_HOME/mostrc"
