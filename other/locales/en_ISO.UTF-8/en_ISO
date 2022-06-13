@@ -1,0 +1,153 @@
+comment_char %
+escape_char /
+
+% This file is part of the GNU C Library and contains locale data.
+% The Free Software Foundation does not claim any copyright interest
+% in the locale data contained in this file.  The foregoing does not
+% affect the license of the GNU C Library as a whole.  It does not
+% exempt you from the conditions of the license if your use would
+% otherwise be governed by that license.
+
+% Locale for international English
+% Contributed by Ulrich Drepper <drepper@redhat.com>, 2000
+
+LC_IDENTIFICATION
+title      "English locale with ISO conventions"
+source     "Made by mazunki by modifying en_US"
+address    "https:////www.gnu.org//software//libc//"
+contact    ""
+email      ""
+tel        ""
+fax        ""
+language   "ISO English"
+territory  "International"
+revision   "1.0"
+date       "2021-01-02"
+
+category "i18n:2012";LC_IDENTIFICATION
+category "i18n:2012";LC_CTYPE
+category "i18n:2012";LC_COLLATE
+category "i18n:2012";LC_TIME
+category "i18n:2012";LC_NUMERIC
+category "i18n:2012";LC_MONETARY
+category "i18n:2012";LC_MESSAGES
+category "i18n:2012";LC_PAPER
+category "i18n:2012";LC_NAME
+category "i18n:2012";LC_ADDRESS
+category "i18n:2012";LC_TELEPHONE
+category "i18n:2012";LC_MEASUREMENT
+END LC_IDENTIFICATION
+
+LC_CTYPE
+copy "i18n"
+
+translit_start
+include "translit_combining";""
+translit_end
+END LC_CTYPE
+
+LC_COLLATE
+
+% Copy the template from ISO/IEC 14651
+copy "iso14651_t1"
+
+END LC_COLLATE
+
+LC_NUMERIC
+decimal_point   "."
+thousands_sep   " "
+grouping        3;3
+END LC_NUMERIC
+
+LC_TIME
+abday	"Sun";"Mon";"Tue";"Wed";"Thu";"Fri";"Sat"
+day	"Sunday";/
+	"Monday";/
+	"Tuesday";/
+	"Wednesday";/
+	"Thursday";/
+	"Friday";/
+	"Saturday"
+
+week 7;19971201;4
+abmon	"Jan";"Feb";/
+	"Mar";"Apr";/
+	"May";"Jun";/
+	"Jul";"Aug";/
+	"Sep";"Oct";/
+	"Nov";"Dec"
+mon	"January";/
+	"February";/
+	"March";/
+	"April";/
+	"May";/
+	"June";/
+	"July";/
+	"August";/
+	"September";/
+	"October";/
+	"November";/
+	"December"
+
+% Appropriate date and time representation (%c)
+d_t_fmt "%A, %F %R %Z"
+%
+% Appropriate date representation (%x)
+d_fmt   "%F"
+%
+% Appropriate time representation (%X)
+t_fmt   "%T"
+%
+% Appropriate AM/PM time representation (%r)
+t_fmt_ampm "%I:%M:%S %p"
+%
+% Appropriate date and time representation for date(1).  This is
+% different from d_t_fmt for historical reasons and has been different
+% since 2000 when date_fmt was added as a GNU extension.  At the end
+% of 2018 it was adjusted to use 12H time (bug 24046) instead of 24H.
+date_fmt "%F %T%Z"
+%
+% Strings for AM/PM
+%
+am_pm	"morning";"afternoon"
+END LC_TIME
+
+LC_MESSAGES
+yesexpr "^[+1yY]"
+noexpr  "^[-0nN]"
+yesstr  "yes"
+nostr   "no"
+END LC_MESSAGES
+
+LC_PAPER
+height   297
+width    210
+END LC_PAPER
+
+LC_NAME
+name_fmt    "%d%t%g%t%M%t%f"
+name_miss   "Mx."
+name_mr     "Mx."
+name_mrs    "Mx."
+name_ms     "Mx."
+name_gen    "Mx."
+END LC_NAME
+
+LC_MONETARY
+copy "i18n"
+END LC_MONETARY
+
+LC_TELEPHONE
+tel_int_fmt    "+(%c) %a %l"
+int_prefix     "64"
+int_select     "00"
+END LC_TELEPHONE
+
+LC_ADDRESS
+copy "i18n"
+END LC_ADDRESS
+
+LC_MEASUREMENT
+measurement 1
+END LC_MEASUREMENT
+
