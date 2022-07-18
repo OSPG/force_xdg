@@ -13,7 +13,7 @@ fi
 
 silent_pushd "${XDG_DATA_HOME}/force_xdg"
 	# for app in data_home/force_xdg/env.d/*; do
-	for app in read -r; do
+	while IFS= read -r app; do
 		. env.d/${app}
 	done < "${XDG_CONFIG_HOME}/force_xdg/active"
 silent_popd
