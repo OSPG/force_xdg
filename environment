@@ -1,7 +1,7 @@
 #!/bin/sh
 # just to silence the output. shell needs to support functions 
-silent_pushd() { command pushd "$@" >/dev/null; }
-silent_popd_() { command popd "$@" >/dev/null; }
+silent_pushd() { pushd "$@" >/dev/null; }
+silent_popd() { popd "$@" >/dev/null; }
 
 
 # TODO: better way of defaulting xdg paths. we assume they exist under our environment
@@ -11,8 +11,9 @@ else
 	. ./xdg_paths
 fi
 
-silent_pushd ${XDG_DATA_HOME}/force_xdg
-	for app in env.d/*; do
-		. ${app}
-	done
+silent_pushd "${XDG_DATA_HOME}/force_xdg"
+	# for app in data_home/force_xdg/env.d/*; do
+	for app in read -r; do
+		. env.d/${app}
+	done < "${XDG_CONFIG_HOME}/force_xdg/active"
 silent_popd
