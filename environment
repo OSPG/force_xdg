@@ -13,7 +13,8 @@ fi
 
 silent_pushd "${XDG_DATA_HOME}/force_xdg"
 	# for app in data_home/force_xdg/env.d/*; do
-	while IFS= read -r app; do
-		. env.d/${app}
-	done < "${XDG_CONFIG_HOME}/force_xdg/active"
+	grep --invert-match '^[[:space:]]\{0,\}#' "${XDG_CONFIG_HOME}/force_xdg/active" | \
+		while IFS= read -r app; do
+			. ${XDG_DATA_HOME}/force_xdg/data_home/force_xdg/env.d/${app}
+		done 
 silent_popd
